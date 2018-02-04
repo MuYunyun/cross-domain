@@ -10,7 +10,7 @@
     <iframe src="http://127.0.0.1:3001"></iframe>
     <script>
       const iframe = document.getElementsByTagName('iframe')[0]
-
+      iframe.setAttribute('style', 'display: none')
       iframe.onload = function() {
         iframe.contentWindow.postMessage('a secret', 'http://127.0.0.1:3001')
       }

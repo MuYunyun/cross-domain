@@ -11,7 +11,6 @@ const server = http.createServer((req, res) => {
     const callback = req.url.split('callback=')[1]
     const json = JSON.stringify(obj)
     const build = callback + `(${json})`
-    res.setHeader('Content-Type', 'text/plain')
     res.end(build) // 这里最终返回前端的是相当于调用函数 callback({json})
   } else { // 非跨域的时候
     res.statusCode = 200
