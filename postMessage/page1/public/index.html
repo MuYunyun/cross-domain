@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>page1</title>
+  </head>
+  <body>
+    <div id="page1">I'm page1</div>
+    <iframe src="http://127.0.0.1:3001"></iframe>
+    <script>
+      const iframe = document.getElementsByTagName('iframe')[0]
+
+      iframe.onload = function() {
+        iframe.contentWindow.postMessage('a secret', 'http://127.0.0.1:3001')
+      }
+
+      window.addEventListener('message', function(event) {
+        console.log('from page2 ' + event.data)
+      }, false)
+    </script>
+  </body>
+</html>

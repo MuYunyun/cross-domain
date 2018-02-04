@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>test cors</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script>
+      var xhr = new XMLHttpRequest()
+      const test = document.getElementById('test')
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+            console.log('responseTesx:' + xhr.responseText) // responseTesx:date from cors
+            const text = document.createTextNode(xhr.responseText)
+            test.appendChild(text)
+          } else {
+            console.log('unsccessful in ' + xhr.status)
+            const unsccessful = document.createTextNode(xhr.status)
+            test.appendChild(unsccessful)
+          }
+        }
+      }
+      xhr.withCredentials = true // ② 传 cookie 的时候前端要做的
+      // xhr.open('get', 'http://127.0.0.1:3000', true) // 简单请求
+      xhr.open('put', 'http://127.0.0.1:3000', true) // ③ 非简单请求
+      xhr.send()
+    </script>
+  </body>
+</html>

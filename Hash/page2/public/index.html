@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>page2</title>
+  </head>
+  <body>
+    <div id="page2">I'm page2</div>
+    <script>
+      window.onhashchange = function() { // ① 关键语句
+        console.log('来自 page2 的代码 ' + window.location.hash) // 来自 page2 的代码 #{"data":"hash"}
+      }
+    </script>
+  </body>
+</html>

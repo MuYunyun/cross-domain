@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>page2</title>
+  </head>
+  <body>
+    <div id="page2">I'm page2</div>
+    <script>
+      window.addEventListener('message', function(event) {
+        console.log('From page1 ' + event.data)
+        console.log('From page1 ' + event.origin)
+        window.parent.postMessage('receive', 'http://127.0.0.1:3000')
+      }, false)
+    </script>
+  </body>
+</html>
