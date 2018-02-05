@@ -25,7 +25,8 @@
       }
       xhr.withCredentials = true // ② 传 cookie 的时候前端要做的
       // xhr.open('get', 'http://127.0.0.1:3000', true) // 简单请求
-      xhr.open('put', 'http://127.0.0.1:3000', true) // ③ 非简单请求
+      // xhr.open('put', 'http://127.0.0.1:3000', true) // ③ 非简单请求
+      xhr.open('post', 'http://127.0.0.1:3000', true) // 简单请求
       xhr.send()
     </script>
   </body>
